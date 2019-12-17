@@ -1,4 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>andre</groupId>
   <artifactId>financeiro</artifactId>
@@ -22,7 +23,7 @@
   				<target>1.8</target>
   			</configuration>
   		</plugin>
-  		<plugin>
+  		<plugin>  		
   		<!--
   			Definição para todos os arquivos fontes do projeto, defineremos
   			como UTF-8 que é o padrãoo web. A não dessa codificação gerará 
@@ -42,7 +43,7 @@
   	<repository>
   		<id>jvnet-nexus-releases</id>
   		<name>jvnet-nexus-releases</name>
-  		<url>https://maven.java.net/content/repositories/releases/</url>
+  		<url>https://maven.java.net/content/repositories/releases/</url>  		
   	</repository>
   </repositories>  
   

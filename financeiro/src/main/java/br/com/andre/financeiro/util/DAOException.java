@@ -6,8 +6,8 @@ public class DAOException extends Exception {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DAOException(String arg0) {
-		super(arg0);
+	public DAOException(String message) {
+		super(message);
 		// TODO Auto-generated constructor stub
 	}
 

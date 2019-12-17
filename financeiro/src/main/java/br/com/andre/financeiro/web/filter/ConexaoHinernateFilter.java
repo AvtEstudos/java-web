@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
-import javax.sql.rowset.serial.SerialException;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

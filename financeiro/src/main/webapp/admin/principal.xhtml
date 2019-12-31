@@ -10,7 +10,7 @@
 		<h1>Cadastro de Usuários</h1>
 		<h:form>
 			<h:messages/>
-			<h:dataTable value="#{usuarioBean.lista}" var="usuario" rules="rows" cellpadding="5">
+			<h:dataTable value="#{usuarioBean.lista}" var="usuario" rules="rows" cellpadding="5">			
 				<f:facet name="caption">
 					A listagem a seguir exibe a relação de todos os usuários do sistema. 
 					Você poderá realizar ativação e desativação, edição e exclusão para os usuários.
@@ -19,8 +19,8 @@
 				<f:facet name="footer">Final da listagem</f:facet>
 				
 				<h:column>
-					<h:commandLink action="#{usuarioBean.ativar}">
-						<h:graphicImage library="imagens" name="usuario_ativo_#{usuario.ativo}.png" style="border:0" />
+					<h:commandLink action="#{usuarioBean.ativar}">					
+						<h:graphicImage library="imagens" name="usuario_ativo_#{usuario.ativo}.png" style="border:0" />						
 						<f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}" />						
 					</h:commandLink>
 				</h:column>
@@ -45,6 +45,24 @@
 				</h:column>
 				
 				<h:column>
+					<f:facet name="header">Permissões</f:facet>
+					<h:commandLink 
+						action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_ADMINISTRADOR')}"
+						title="Permissão Administrador">
+						<h:graphicImage library="imagens" 
+							name="ROLE_ADMINISTRADOR_#{usuario.permissao.contains('ROLE_ADMINISTRADOR')}.png"
+							style="border:0"/>
+					</h:commandLink>
+					<h:commandLink 
+						action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_USUARIO_VIP')}"						
+						title="Permissão Usuário VIP">
+						<h:graphicImage library="imagens" 
+							name="ROLE_USUARIO_VIP_#{usuario.permissao.contains('ROLE_USUARIO_VIP')}.png"							
+							style="border:0"/>
+					</h:commandLink>					
+				</h:column>
+				
+				<h:column>
 					<h:commandLink action="#{usuarioBean.editar}">
 						<h:graphicImage library="imagens" name="editar16.png" style="border:0" />
 						<f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}" />
@@ -58,7 +76,8 @@
 						<h:graphicImage library="imagens" name="excluir16.png" style="border:0" />
 						<f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}" />					
 					</h:commandLink>
-				</h:column>			
+				</h:column>				
+							
 			</h:dataTable>
 		</h:form>
 	</h:body>

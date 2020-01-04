@@ -13,5 +13,6 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>		
 		<!-- Mapeando classes -->
 		<mapping class = "br.com.andre.financeiro.usuario.Usuario"/>		 
+		<mapping class = "br.com.andre.financeiro.conta.Conta"/>
 	</session-factory>
 </hibernate-configuration>

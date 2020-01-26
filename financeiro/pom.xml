@@ -43,7 +43,15 @@
   		<id>jvnet-nexus-releases</id>
   		<name>jvnet-nexus-releases</name>
   		<url>https://maven.java.net/content/repositories/releases/</url>  		
-  	</repository>  	
+  	</repository>
+  	
+  	<repository>
+  		<id>prime-repo</id>
+  		<name>PrimeFaces Maven Repository</name>
+  		<url>http://repository.primefaces.org</url>
+  		<layout>default</layout>
+  	</repository>
+  	  	
   </repositories>  
   <dependencies>
   	<!-- Java Server Faces -->
@@ -96,6 +104,11 @@
 		<version>1.1.1</version>
 	</dependency>	
 	
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>5.0</version>
+	</dependency>
   	
   </dependencies>  
   

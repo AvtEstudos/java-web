@@ -150,5 +150,7 @@ public class CategoriaBean {
 	public void setCategoriasSelect(List<SelectItem> categoriasSelect) {
 		this.categoriasSelect = categoriasSelect;
 	}	
+	
+	
 
 }

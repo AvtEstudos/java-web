@@ -8,9 +8,11 @@
 	<session-factory>		
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>								
 		<property name="connection.datasource">java:/comp/env/jdbc/FinanceiroDB</property>				
-		<property name="current_session_context_class">thread</property>				
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.hbm2ddl.auto">update</property> 				
 		<mapping class = "br.com.andre.financeiro.usuario.Usuario"/>		 
 		<mapping class = "br.com.andre.financeiro.conta.Conta"/>
-		<mapping class = "br.com.andre.financeiro.categoria.Categoria"/>		
+		<mapping class = "br.com.andre.financeiro.categoria.Categoria"/>				
+		<mapping class = "br.com.andre.financeiro.lancamento.Lancamento"/>
 	</session-factory>
 </hibernate-configuration>

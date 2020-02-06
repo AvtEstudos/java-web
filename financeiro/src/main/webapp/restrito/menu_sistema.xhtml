@@ -10,6 +10,9 @@
 					<tr>
 						<td>
 							<h:commandButton value="Contas" action="/restrito/conta" />
+							<h:commandButton value="Categorias" action="/restrito/categoria" />
+							<h:commandButton value="Lançamentos" action="/restrito/lancamento" />
+							
 							<h:selectOneMenu value="#{contextoBean.contaAtiva.conta}" 
 								valueChangeListener="#{contextoBean.changeContaAtiva}"
 								rendered="#{not empty contextoBean and not empty contextoBean.contaAtiva}"
@@ -28,8 +31,7 @@
 							</h:commandLink>	
 							<a onclick="document.location='#{request.contextPath}/j_spring_security_logout'" title="Sair" >
 								<h:graphicImage library="imagens" name="logout16.png" />
-							</a>
-							<h:commandButton value="Categorias" action="/restrito/categoria" />
+							</a>							
 							
 						</td>						
 					</tr>

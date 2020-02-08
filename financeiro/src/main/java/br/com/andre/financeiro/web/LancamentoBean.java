@@ -45,6 +45,12 @@ public class LancamentoBean implements Serializable { // 2
 		
 	}
 	
+	public void excluir() {
+		LancamentoRN lancamentoRN = new LancamentoRN();
+		lancamentoRN.excluir(this.editado);
+		this.lista = null;
+	}
+	
 	public void salvar() {
 		this.editado.setUsuario(this.contextoBean.getUsuarioLogado());
 		this.editado.setConta(this.contextoBean.getContaAtiva());

@@ -14,5 +14,6 @@
 		<mapping class = "br.com.andre.financeiro.conta.Conta"/>
 		<mapping class = "br.com.andre.financeiro.categoria.Categoria"/>				
 		<mapping class = "br.com.andre.financeiro.lancamento.Lancamento"/>
+		<mapping class = "br.com.andre.financeiro.cheque.Cheque"/>
 	</session-factory>
 </hibernate-configuration>

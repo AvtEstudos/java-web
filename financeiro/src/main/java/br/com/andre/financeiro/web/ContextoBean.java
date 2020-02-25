@@ -1,7 +1,6 @@
 package br.com.andre.financeiro.web;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,12 +13,18 @@ import br.com.andre.financeiro.conta.ContaRN;
 import br.com.andre.financeiro.usuario.Usuario;
 import br.com.andre.financeiro.usuario.UsuarioRN;
 
+import java.util.List;
+import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 @ManagedBean
 @SessionScoped
 public class ContextoBean implements Serializable {	
 	
-	private static final long serialVersionUID = -3439643125987022473L;
-	private int codigoContaAtiva = 0;
+	private static final long serialVersionUID = 3139905123348050008L;
+	private int codigoContaAtiva = 0;	
+	private List<Locale> idiomas; //1
 
 	public Usuario getUsuarioLogado() {
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -28,10 +33,44 @@ public class ContextoBean implements Serializable {
 		
 		if(login != null) {
 			UsuarioRN usuarioRN = new UsuarioRN();
-			return usuarioRN.buscarPorLogin(login);
+			
+			Usuario usuario = usuarioRN.buscarPorLogin(login);
+			String[] info = usuario.getIdioma().split("_");
+			Locale locale = new Locale(info[0], info[1]);
+			context.getViewRoot().setLocale(locale); //2
+			
+			return usuario;
 		}
 		
 		return null;
+	}
+	
+	public List<Locale> getIdiomas(){ //3
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		Iterator<Locale> locales = context.getApplication().getSupportedLocales();
+		this.idiomas = new ArrayList<Locale>();
+		
+		while (locales.hasNext()) {
+			this.idiomas.add(locales.next());			
+		}
+		
+		return this.idiomas;
+	}
+	
+	public void setIdiomaUsuario(String idioma) { //4
+		
+		Usuario usuario = this.getUsuarioLogado();
+		usuario.setIdioma(idioma);
+		UsuarioRN usuarioRN = new UsuarioRN();
+		usuarioRN.salvar(usuario); 
+		
+		String[] info = idioma.split("_");
+		Locale locale = new Locale(info[0], info[1]);
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getViewRoot().setLocale(locale);
+		
 	}
 	
 	public Conta getContaAtiva() {

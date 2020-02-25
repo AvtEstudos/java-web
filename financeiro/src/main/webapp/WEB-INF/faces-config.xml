@@ -3,5 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
+	
+	<application>
+		<locale-config> <!-- 1 -->
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>en_US</supported-locale>
+			<supported-locale>es_ES</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
+		</locale-config>
+		<resource-bundle> <!-- 2 -->
+			<base-name>br.com.andre.financeiro.idioma.mensagens</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		
+		<!-- 3 -->
+		<!-- 
+		<message-bundle>br.com.andre.financeiro.idioma.CustomMessages</message-bundle> 
+		-->
+		
+	</application>
 
 </faces-config>
